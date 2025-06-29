@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Behera - Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 60px 0; background: white; margin: 20px 0; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #667eea; }
+        
+        .projects-grid, .certifications-grid { display: grid; gap: 30px; }
+        .projects-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+        .certifications-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        
+        .project-card, .cert-card { 
+            background: white; 
+            border: 2px solid #ddd; 
+            border-radius: 10px; 
+            padding: 30px; 
+            min-height: 200px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .project-card h3, .cert-card h3 { color: #333; margin-bottom: 15px; }
+        .project-link, .cert-link { 
+            display: inline-block; 
+            padding: 10px 20px; 
+            background: #6366f1; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            margin-top: 15px; 
+        }
+        .project-link:hover, .cert-link:hover { background: #4338ca; }
+    </style>
+</head>
+<body>
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">🔧 Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🧠 YOLOvX Object Detection</h3>
+                    <p>Real-time object detection using YOLOvX model during an internship.</p>
+                    <p><strong>Tech:</strong> YOLOvX, OpenCV, Python</p>
+                    <a href="https://community.yolovx.com/t/detecting-and-counting-canteen-trays-carried-by-students-and-testing-with-yolovx-app/126?u=aditya_behera" target="_blank" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🎮 Tic-Tac-Toe with AI</h3>
+                    <p>Python-based multiplayer game with AI (Minimax) logic.</p>
+                    <p><strong>Tech:</strong> Python, Minimax, CLI</p>
+                    <a href="https://github.com/AdiArtifice/Tic-Tac-Toe-AI" target="_blank" class="project-link">GitHub</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🎵 Music Genre Classification</h3>
+                    <p>Deep learning project to classify music genres using spectrograms.</p>
+                    <p><strong>Tech:</strong> Python, CNN, TensorFlow, Librosa</p>
+                    <a href="https://github.com/AdiArtifice/Music-Genre-Classification" target="_blank" class="project-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">📜 Certifications</h2>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 15px;">🧠</div>
+                    <h3>AI & ML Technical Workshop</h3>
+                    <p>Remarkskill + IIT Bombay</p>
+                    <a href="https://drive.google.com/file/d/182IauR9V21Uftzgfho5e-brAyR4yAii8/view?usp=sharing" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                
+                <div class="cert-card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 15px;">☕</div>
+                    <h3>Programming in Java</h3>
+                    <p>NPTEL</p>
+                    <a href="https://drive.google.com/file/d/1K2Cn44OIrNo1HX2rPIbHgk9mjJXJY6LW/view?usp=sharing" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                
+                <div class="cert-card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 15px;">🐍</div>
+                    <h3>Python Bootcamp</h3>
+                    <p>Udemy</p>
+                    <a href="https://www.udemy.com/certificate/UC-e33b6864-dbd0-4b32-8eb3-62032f35c4f1/" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                
+                <div class="cert-card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 15px;">📊</div>
+                    <h3>Data Science Foundations</h3>
+                    <p>LinkedIn Learning</p>
+                    <a href="https://www.linkedin.com/learning/certificates/739dcd59b78ea87d2ca8ee55ce22b93c1d8e9d6bcad6a3c5c73e51036788ba0c?trk=share_certificate" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                
+                <div class="cert-card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 15px;">🤝</div>
+                    <h3>Collaborate Effectively</h3>
+                    <p>IBM SkillsBuild</p>
+                    <a href="https://drive.google.com/file/d/1iKiNQv8GEQ_gp89-GdFL1AdpTiFrTjQM/view?usp=sharing" target="_blank" class="cert-link">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Simple version loaded');
+            console.log('Project cards:', document.querySelectorAll('.project-card').length);
+            console.log('Cert cards:', document.querySelectorAll('.cert-card').length);
+        });
+    </script>
+</body>
+</html>
