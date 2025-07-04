@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Ensure project and cert sections are visible
         ensureSectionsVisible();
         
+        // Initialize skill source navigation
+        initializeSkillNavigation();
+        
         console.log('Portfolio initialized successfully');
     } catch (error) {
         console.error('Error initializing portfolio:', error);
@@ -25,8 +28,12 @@ function ensureSectionsVisible() {
     
     const projectsSection = document.querySelector('.projects');
     const certificationsSection = document.querySelector('.certifications');
+    const experienceSection = document.querySelector('.experience');
+    const skillsSection = document.querySelector('.skills');
     const projectCards = document.querySelectorAll('.project-card');
     const certCards = document.querySelectorAll('.cert-card');
+    const skillCards = document.querySelectorAll('.skill-card');
+    const experienceCards = document.querySelectorAll('.experience-card');
     
     if (projectsSection) {
         projectsSection.style.display = 'block';
@@ -40,6 +47,20 @@ function ensureSectionsVisible() {
         certificationsSection.style.visibility = 'visible';
         certificationsSection.style.opacity = '1';
         console.log('Certifications section made visible');
+    }
+    
+    if (experienceSection) {
+        experienceSection.style.display = 'block';
+        experienceSection.style.visibility = 'visible';
+        experienceSection.style.opacity = '1';
+        console.log('Experience section made visible');
+    }
+    
+    if (skillsSection) {
+        skillsSection.style.display = 'block';
+        skillsSection.style.visibility = 'visible';
+        skillsSection.style.opacity = '1';
+        console.log('Skills section made visible');
     }
     
     projectCards.forEach((card, index) => {
@@ -56,8 +77,24 @@ function ensureSectionsVisible() {
         console.log(`Cert card ${index + 1} made visible`);
     });
     
+    skillCards.forEach((card, index) => {
+        card.style.display = 'block';
+        card.style.visibility = 'visible';
+        card.style.opacity = '1';
+        console.log(`Skill card ${index + 1} made visible`);
+    });
+    
+    experienceCards.forEach((card, index) => {
+        card.style.display = 'block';
+        card.style.visibility = 'visible';
+        card.style.opacity = '1';
+        console.log(`Experience card ${index + 1} made visible`);
+    });
+    
     console.log(`Total project cards: ${projectCards.length}`);
     console.log(`Total cert cards: ${certCards.length}`);
+    console.log(`Total skill cards: ${skillCards.length}`);
+    console.log(`Total experience cards: ${experienceCards.length}`);
 }
 
 // Navigation functionality
@@ -152,7 +189,12 @@ function initializeNavigation() {
 
     // Ensure project links work properly
     const projectLinks = document.querySelectorAll('.project-link');
+    const experienceLinks = document.querySelectorAll('.experience-link');
+    const certLinks = document.querySelectorAll('.cert-link');
+    
     console.log(`Found ${projectLinks.length} project links`);
+    console.log(`Found ${experienceLinks.length} experience links`);
+    console.log(`Found ${certLinks.length} cert links`);
     
     projectLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -161,7 +203,175 @@ function initializeNavigation() {
         });
     });
     
+    experienceLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            console.log('Experience link clicked:', this.href);
+            // Let the default behavior handle the link opening
+        });
+    });
+    
+    certLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            console.log('Cert link clicked:', this.href);
+            // Let the default behavior handle the link opening
+        });
+    });
+    
     console.log('Navigation initialized successfully');
+}
+
+// Skill source navigation functionality
+function initializeSkillNavigation() {
+    console.log('Initializing skill navigation...');
+    
+    const skillSources = document.querySelectorAll('.skill-source');
+    console.log(`Found ${skillSources.length} skill sources`);
+    
+    skillSources.forEach(source => {
+        source.addEventListener('click', function() {
+            const targetSection = this.getAttribute('data-target');
+            const targetItem = this.getAttribute('data-item');
+            
+            console.log(`Navigating to ${targetSection} -> ${targetItem}`);
+            
+            // Handle different navigation types
+            if (targetSection === 'projects') {
+                navigateToProject(targetItem);
+            } else if (targetSection === 'certifications') {
+                navigateToCertification(targetItem);
+            } else if (targetSection === 'experience') {
+                navigateToExperience(targetItem);
+            } else if (targetSection === 'education') {
+                navigateToEducation(targetItem);
+            }
+        });
+    });
+    
+    console.log('Skill navigation initialized successfully');
+}
+
+// Navigate to specific project
+function navigateToProject(projectId) {
+    const projectElement = document.getElementById(projectId);
+    if (projectElement) {
+        // First scroll to projects section
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // After a short delay, highlight the specific project
+            setTimeout(() => {
+                projectElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // Add highlight effect
+                highlightElement(projectElement);
+            }, 800);
+        }
+    } else if (projectId === 'python-projects') {
+        // Navigate to projects section for general Python projects
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+}
+
+// Navigate to specific certification
+function navigateToCertification(certId) {
+    const certElement = document.getElementById(certId);
+    if (certElement) {
+        // First scroll to certifications section
+        const certificationsSection = document.getElementById('certifications');
+        if (certificationsSection) {
+            certificationsSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // After a short delay, highlight the specific certification
+            setTimeout(() => {
+                certElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // Add highlight effect
+                highlightElement(certElement);
+            }, 800);
+        }
+    }
+}
+
+// Navigate to specific experience
+function navigateToExperience(experienceId) {
+    const experienceElement = document.getElementById(experienceId);
+    if (experienceElement) {
+        // First scroll to experience section
+        const experienceSection = document.getElementById('experience');
+        if (experienceSection) {
+            experienceSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // After a short delay, highlight the specific experience
+            setTimeout(() => {
+                experienceElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // Add highlight effect
+                highlightElement(experienceElement);
+            }, 800);
+        }
+    }
+}
+
+// Navigate to education
+function navigateToEducation(educationId) {
+    const educationElement = document.getElementById(educationId);
+    if (educationElement) {
+        // First scroll to education section
+        const educationSection = document.getElementById('education');
+        if (educationSection) {
+            educationSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // After a short delay, highlight the specific education item
+            setTimeout(() => {
+                educationElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // Add highlight effect
+                highlightElement(educationElement);
+            }, 800);
+        }
+    }
+}
+
+// Highlight element with animation
+function highlightElement(element) {
+    // Add highlight class
+    element.classList.add('skill-highlight');
+    
+    // Remove highlight after animation
+    setTimeout(() => {
+        element.classList.remove('skill-highlight');
+    }, 2000);
 }
 
 // Scroll animations
@@ -448,7 +658,7 @@ function debounce(func, wait) {
 
 // Add smooth hover effects to cards
 document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.project-card, .cert-card, .skill-item, .stat-card');
+    const cards = document.querySelectorAll('.project-card, .cert-card, .skill-card, .experience-card, .stat-card');
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -497,7 +707,7 @@ function createRipple(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.btn, .project-link, .cert-link, .contact-link');
+    const buttons = document.querySelectorAll('.btn, .project-link, .cert-link, .contact-link, .experience-link');
     
     buttons.forEach(button => {
         button.addEventListener('click', createRipple);
