@@ -204,6 +204,8 @@ body {
 /* Section Styles */
 section {
     padding: 4rem 0;
+    display: block;
+    visibility: visible;
 }
 
 .section-title {
@@ -216,6 +218,8 @@ section {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: #667eea;
+    display: block;
+    visibility: visible;
 }
 
 /* About Section */
@@ -303,12 +307,23 @@ section {
 /* Skills Section */
 .skills {
     background: #f9fafb;
+    display: block;
+    visibility: visible;
+    padding: 4rem 0;
+}
+
+.skills-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: block;
+    visibility: visible;
 }
 
 .major-skills {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
+    visibility: visible;
 }
 
 .skill-card {
@@ -320,6 +335,9 @@ section {
     border: 1px solid #e5e7eb;
     position: relative;
     overflow: hidden;
+    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .skill-card::before {
@@ -450,11 +468,16 @@ section {
 /* Experience Section */
 .experience {
     background: white;
+    display: block;
+    visibility: visible;
+    padding: 4rem 0;
 }
 
 .experience-content {
     max-width: 900px;
     margin: 0 auto;
+    display: block;
+    visibility: visible;
 }
 
 .experience-card {
@@ -466,6 +489,9 @@ section {
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
+    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .experience-card::before {
@@ -576,6 +602,15 @@ section {
     flex-wrap: wrap;
     gap: 0.8rem;
     margin-bottom: 2rem;
+}
+
+.experience-tech .tech-tag {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
 }
 
 .experience-links {
@@ -1029,7 +1064,7 @@ section {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1);
         padding: 2rem 0;
     }
     
